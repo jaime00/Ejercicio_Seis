@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -153,13 +155,40 @@ public class Ejercicio extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
 
-       
-        
+    if(txtCms.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(this,"Digite el numero de cms","ERROR",JOptionPane.ERROR_MESSAGE);
+            txtCms.requestFocusInWindow();
+        }else if(txtColores.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(this, "Digite el numero de colores","ERROR",JOptionPane.ERROR_MESSAGE);
+            txtColores.requestFocusInWindow();
+        }else if(txtpalabras.getText().trim().isEmpty()){
+            JOptionPane.showConfirmDialog(this, "Digite el numero de palabras","ERROR",JOptionPane.ERROR_MESSAGE);
+            txtpalabras.requestFocusInWindow();
+        }else{
+
+            double pal=Double.parseDouble(txtpalabras.getText());
+            double cms=Double.parseDouble(txtCms.getText());
+            double col=Double.parseDouble(txtColores.getText());
+
+            double p=pal*20.000;
+            double c=cms*15.000;
+            double co=col*25.000;
+
+            double op=p+c+co;
+
+            lblResultado.setText(""+op);
+      
+        }   
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
        
+        txtCms.setText("");
+        txtColores.setText("");
+        txtpalabras.setText("");
+        lblResultado.setText("");
 
+        txtpalabras.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
